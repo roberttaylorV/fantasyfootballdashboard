@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Draft Dashboard</title>
+    <style>
+        /* Add your desired CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Live Draft Dashboard</h1>
+    <div id="recent-pick">
+        <h2>Most Recent Pick</h2>
+        <p>Player: <span id="player-name"></span></p>
+        <p>Team: <span id="team-name"></span></p>
+        <p>Round: <span id ="round"></span></p>
+        <p>#: <span id ="pick_no"></span></p>
+        <p>Position: <span id="position"></span></p>
+        <p>Team Owner: <span id="owner_name"></span></p>
+    </div>
+
+    <script>
+        function updateRecentPick() {
+            fetch('/api/recent_pick')
+                .then(response => response.json())
+                .then(data => {
+                    // Update the player name in the span element
+                    document.getElementById('player-name').textContent = data.player_name;
+                    // Update the team name in the span element
+                    document.getElementById('team-name').textContent = data.team_name;
+                    // Update the player name in the span element
+                    document.getElementById('round').textContent = data.round;
+                    // Update the team name in the span element
+                    document.getElementById('position').textContent = data.position;
+                    document.getElementById('pick_no').textContent = data.pick_no;
+                    document.getElementById('owner_name').textContent = data.owner_name;
+                    document.getElementById('avatar_id').textContent = data.avatar_id;
+                });
+        }
+
+        // Update the recent pick data every 5 seconds (5000 milliseconds)
+        setInterval(updateRecentPick, 100);
+    </script>
+</body>
+</html>
