@@ -1,48 +1,53 @@
-# football
-# Fantasy Football Draft Dashboard
 
-This project is a live updating dashboard for your fantasy football draft. It displays the currently selected user, their name, and the most recently picked player and the team they are going to. The dashboard fetches data from the Sleeper API and updates the information in real-time.
+# Live Draft Dashboard
 
-## Features
+Author: Robert Taylor
 
-- Displays the currently selected user and their name.
-- Shows the most recently picked player and the team they are going to.
-- Updates the information dynamically using AJAX requests.
-- Uses Python and Flask on the server-side.
-- Utilizes the Sleeper API for retrieving draft and player data.
+## Description
 
-## Setup
-
-1. Clone the repository:  git clone https://github.com/your-username/fantasy-draft-dashboard.git
-
-2. Install the required dependencies:
-pip install -r requirements.txt
-3. Open `main.py` and replace `"draft_id"` with your actual draft ID.
-4. Start the Flask server: python main.py
-
-5. Access the dashboard in your web browser at `http://localhost:5000`.
-
-## Project Structure
-
-- `main.py`: Python script containing the Flask server code.
-- `templates/`: Directory containing HTML templates for the dashboard.
-- `static/`: Directory for static files (CSS, JavaScript, images, etc.).
-
-## Usage
-
-- The dashboard will automatically update every 5 seconds to fetch the most recent pick and team information.
-- Customize the HTML and CSS templates to match your desired aesthetic.
+This project is a simple Flask web application that provides a live draft dashboard for a sports draft. It displays the details of the most recent pick, such as the player's name, team name, round, pick number, position, and team owner. The dashboard updates these details in real time every 0.1 seconds.
 
 ## Dependencies
 
-- Python 3.x
+The following Python packages are required to run this application:
+
 - Flask
 - sleeperpy
 
-## Contributing
+You can install these packages using pip:
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+```
+pip install Flask sleeperpy
+```
 
-## License
+## Setup and Running the Application
 
-This project is licensed under the [MIT License](LICENSE).
+1. Make sure you have Python installed on your machine. You can check this by running `python --version` in your terminal. If Python is not installed, you can download it from the official website: https://www.python.org/.
+
+2. Clone this repository to your local machine.
+
+3. Navigate to the project directory in your terminal.
+
+4. Install the required dependencies using pip:
+
+    ```
+    pip install -r requirements.txt
+    ```
+
+    Note: If the `requirements.txt` file is not available, you can install the dependencies manually using the command provided in the Dependencies section above.
+
+5. Run the Flask application:
+
+    ```
+    python main.py
+    ```
+
+6. Open your web browser and go to `http://localhost:5000` to view the live draft dashboard.
+
+## Using the API
+
+The application provides an API endpoint (`'/api/recent_pick'`) that returns a JSON object with the details of the most recent pick. You can access this endpoint by making a GET request to `http://localhost:5000/api/recent_pick`.
+
+---
+
+Please note that this README assumes that the Flask application will be run on the local machine (localhost) and the default Flask port (5000) will be used. If you plan to deploy this application to a server or run it on a different port, you'll need to update the URLs accordingly.
